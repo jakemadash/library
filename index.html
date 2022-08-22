@@ -9,6 +9,35 @@
     <script src="javascript.js" defer></script>
 </head>
 <body>
+    <button>New Book</button>
+    <form action="POST">
+        <div>
+            <label for="title">Title</label><br>
+            <input type="text" id="title" name="title"><br>
+        </div>
+
+        <div>
+            <label for="author">Author</label><br>
+            <input type="text" id="author" name="author"><br>
+        </div>
+
+        <div>
+            <label for="pages">Number Of Pages</label><br>
+            <input type="text" id="pages" name="pages"><br>
+        </div>
+
+        <fieldset>
+            <legend>Have You Read It?</legend>
+                <div>
+                    <label for="yes">Yes</label>
+                    <input type="radio" id="yes" name="have-read" value="yes">
+                </div>
+                <div>
+                    <label for="no">No</label>
+                    <input type="radio" id="no" name="have-read" value="no">
+                </div>
+        </fieldset>
+    </form>
     <table>
         <tr>
             <th>Title</th>

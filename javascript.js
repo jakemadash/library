@@ -11,23 +11,27 @@ function Book (title, author, pages, haveRead) {
     }
   }
 
-  function addBookToLibrary() {
+function addBookToLibrary() {
 
+}
+
+function displayBook() {
+
+  // Add row to table
+  for (let i = 0; i < library.length; i++) {
+      const table = document.querySelector('tbody');
+      let row = document.createElement('tr');
+      row.setAttribute(`data-number`, `${i}`);
+      table.append(row);
+
+      // Add book data to row
+      let currentRow = table.lastChild;
+      for (const property in library[i]) {
+          let data = document.createElement('td');
+          data.textContent = `${library[i][property]}`
+          currentRow.append(data);
+      }
   }
-
-  function displayBook() {
-    for (let i = 0; i < library.length; i++) {
-        const table = document.querySelector('tbody');
-        let row = document.createElement('tr');
-        row.setAttribute(`data-number`, `${i}`);
-        table.append(row);
-        let currentRow = table.lastChild;
-        for (const property in library[i]) {
-            let data = document.createElement('td');
-            data.textContent = `${library[i][property]}`
-            currentRow.append(data);
-        }
-    }
 }
 
 displayBook();
