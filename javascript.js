@@ -12,6 +12,7 @@ function Book (title, author, pages, haveRead) {
   }
 
 function addBookToLibrary() {
+  const submit = document.querySelector("input[type='submit']");
 
 }
 
@@ -35,3 +36,9 @@ function displayBook() {
 }
 
 displayBook();
+
+let button = document.querySelector('button');
+button.addEventListener('click', () => {
+  const form = document.querySelector('form');
+  form.removeAttribute('hidden');
+})

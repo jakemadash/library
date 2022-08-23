@@ -10,7 +10,7 @@
 </head>
 <body>
     <button>New Book</button>
-    <form action="POST">
+    <form hidden action="POST">
         <div>
             <label for="title">Title</label><br>
             <input type="text" id="title" name="title"><br>
@@ -37,6 +37,9 @@
                     <input type="radio" id="no" name="have-read" value="no">
                 </div>
         </fieldset>
+        <div>
+            <input type="submit">
+        </div>
     </form>
     <table>
         <tr>
