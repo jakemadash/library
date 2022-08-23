@@ -1,4 +1,5 @@
 let library = [{'title':'Gulliver Boys', 'author': 'St Gulliver', 'pages': 20, 'haveRead': true}];
+const form = document.querySelector('form');
 
 function Book (title, author, pages, haveRead) {
     this.title = title
@@ -11,9 +12,20 @@ function Book (title, author, pages, haveRead) {
     }
   }
 
-function addBookToLibrary() {
-  const submit = document.querySelector("input[type='submit']");
+form.addEventListener('submit', addBookToLibrary);
+ 
 
+function addBookToLibrary() {
+  console.log('yay');
+  const book = Object.create(Book);
+  book.title = document.getElementById('title').value;
+  book.author = document.getElementById('author').value;
+  book.pages = document.getElementById('pages').value;
+  book.haveRead = document.querySelector("input:checked").value;
+  library.push(book);
+  form.reset();
+  form.setAttribute('hidden', '');
+  displayBook();
 }
 
 function displayBook() {
@@ -38,7 +50,5 @@ function displayBook() {
 displayBook();
 
 let button = document.querySelector('button');
-button.addEventListener('click', () => {
-  const form = document.querySelector('form');
-  form.removeAttribute('hidden');
-})
+button.addEventListener('click', () => 
+  form.removeAttribute('hidden'))
