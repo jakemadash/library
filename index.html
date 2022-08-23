@@ -13,24 +13,24 @@
     <form hidden action="POST">
         <div>
             <label for="title">Title</label><br>
-            <input type="text" id="title" name="title"><br>
+            <input type="text" id="title" name="title" required><br>
         </div>
 
         <div>
             <label for="author">Author</label><br>
-            <input type="text" id="author" name="author"><br>
+            <input type="text" id="author" name="author" required><br>
         </div>
 
         <div>
             <label for="pages">Number Of Pages</label><br>
-            <input type="text" id="pages" name="pages"><br>
+            <input type="number" id="pages" name="pages" required><br>
         </div>
 
         <fieldset>
             <legend>Have You Read It?</legend>
                 <div>
                     <label for="yes">Yes</label>
-                    <input type="radio" id="yes" name="have-read" value="yes">
+                    <input type="radio" id="yes" name="have-read" value="yes" required>
                 </div>
                 <div>
                     <label for="no">No</label>
