@@ -1,4 +1,4 @@
-let library = [{'title':'Gulliver Boys', 'author': 'St Gulliver', 'pages': 20, 'haveRead': true}];
+let library = [];
 const form = document.querySelector('form');
 
 function Book (title, author, pages, haveRead) {
@@ -16,7 +16,6 @@ form.addEventListener('submit', addBookToLibrary);
  
 
 function addBookToLibrary() {
-  console.log('yay');
   const book = Object.create(Book);
   book.title = document.getElementById('title').value;
   book.author = document.getElementById('author').value;
@@ -30,24 +29,22 @@ function addBookToLibrary() {
 
 function displayBook() {
 
-  // Add row to table
-  for (let i = 0; i < library.length; i++) {
-      const table = document.querySelector('tbody');
-      let row = document.createElement('tr');
-      row.setAttribute(`data-number`, `${i}`);
-      table.append(row);
+  let currentBook = library.length - 1;
 
-      // Add book data to row
-      let currentRow = table.lastChild;
-      for (const property in library[i]) {
-          let data = document.createElement('td');
-          data.textContent = `${library[i][property]}`
-          currentRow.append(data);
-      }
-  }
+// Add row to table
+    const table = document.querySelector('tbody');
+    let row = document.createElement('tr');
+    row.setAttribute(`data-number`, `${currentBook}`);
+    table.append(row);
+
+    // Add book data to row
+    let currentRow = table.lastChild;
+    for (const property in library[currentBook]) {
+        let data = document.createElement('td');
+        data.textContent = `${library[currentBook][property]}`
+        currentRow.append(data);
+    }
 }
-
-displayBook();
 
 let button = document.querySelector('button');
 button.addEventListener('click', () => 
