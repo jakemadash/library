@@ -29,7 +29,7 @@ function addBookToLibrary() {
 
 function displayBook() {
 
-  let currentBook = library.length - 1;
+  let currentBook = library.length;
 
   // Add row to table
   const table = document.querySelector('tbody');
@@ -39,17 +39,26 @@ function displayBook() {
 
   // Add book data to row
   let currentRow = table.lastChild;
-  for (const property in library[currentBook]) {
+  for (const property in library[currentBook - 1]) {
       let data = document.createElement('td');
-      data.textContent = `${library[currentBook][property]}`
+      data.textContent = `${library[currentBook - 1][property]}`
       currentRow.append(data);
   }
 
+  // Add remove button
   let remove = document.createElement('button');
   remove.textContent = 'Remove';
+  remove.classList.add('remove');
   currentRow.append(remove);
+
+  // Add remove functionality
+  remove = currentRow.lastChild;
+  remove.addEventListener('click', () => 
+    currentRow.remove())
 }
 
-let button = document.querySelector('button');
-button.addEventListener('click', () => 
+let newBook = document.querySelector('button.new');
+newBook.addEventListener('click', () => 
   form.removeAttribute('hidden'))
+
+
