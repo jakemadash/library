@@ -31,19 +31,23 @@ function displayBook() {
 
   let currentBook = library.length - 1;
 
-// Add row to table
-    const table = document.querySelector('tbody');
-    let row = document.createElement('tr');
-    row.setAttribute(`data-number`, `${currentBook}`);
-    table.append(row);
+  // Add row to table
+  const table = document.querySelector('tbody');
+  let row = document.createElement('tr');
+  row.setAttribute(`data-number`, `${currentBook}`);
+  table.append(row);
 
-    // Add book data to row
-    let currentRow = table.lastChild;
-    for (const property in library[currentBook]) {
-        let data = document.createElement('td');
-        data.textContent = `${library[currentBook][property]}`
-        currentRow.append(data);
-    }
+  // Add book data to row
+  let currentRow = table.lastChild;
+  for (const property in library[currentBook]) {
+      let data = document.createElement('td');
+      data.textContent = `${library[currentBook][property]}`
+      currentRow.append(data);
+  }
+
+  let remove = document.createElement('button');
+  remove.textContent = 'Remove';
+  currentRow.append(remove);
 }
 
 let button = document.querySelector('button');
