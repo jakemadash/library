@@ -6,17 +6,27 @@ function Book (title, author, pages, haveRead) {
     this.author = author
     this.pages = pages
     this.haveRead = haveRead
-    this.info = function() {
-      let info = `${title} by ${author}, ${pages} pages, ${haveRead}`
-      return info
-    }
+}
+
+Book.prototype.info = function() {
+  let info = `${this.title} by ${this.author}, ${this.pages} pages, ${this.haveRead}`
+  return info
+}
+
+Book.prototype.readStatus = function() {
+  if (this.haveRead.toLowerCase() === 'yes') {
+    this.haveRead = 'no'
   }
+  else this.haveRead = 'yes'
+
+  return this.haveRead;
+}
 
 form.addEventListener('submit', addBookToLibrary);
  
 
 function addBookToLibrary() {
-  const book = Object.create(Book);
+  let book = new Book;
   book.title = document.getElementById('title').value;
   book.author = document.getElementById('author').value;
   book.pages = document.getElementById('pages').value;
@@ -29,20 +39,23 @@ function addBookToLibrary() {
 
 function displayBook() {
 
-  let currentBook = library.length;
+  let currentBookNumber = library.length;
+  let currentBook = library[currentBookNumber - 1]
 
   // Add row to table
   const table = document.querySelector('tbody');
   let row = document.createElement('tr');
-  row.setAttribute(`data-number`, `${currentBook}`);
+  row.setAttribute(`data-number`, `${currentBookNumber}`);
   table.append(row);
 
   // Add book data to row
   let currentRow = table.lastChild;
-  for (const property in library[currentBook - 1]) {
+  for (const property in currentBook) {
+    if (currentBook.hasOwnProperty(property)) {
       let data = document.createElement('td');
-      data.textContent = `${library[currentBook - 1][property]}`
+      data.textContent = `${currentBook[property]}`
       currentRow.append(data);
+    }
   }
 
   // Add remove button
