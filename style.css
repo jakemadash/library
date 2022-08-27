@@ -1,16 +1,31 @@
-body {
-   padding: 10% 40%;
+:root {
+   padding: 10% 30%;
    box-sizing: border-box;
+   font-size: 1.5rem;
 }
 
-table {
-    table-layout: fixed;
-    width: 100%;
-    border-collapse: collapse;
-    border: 2px solid rgb(0, 128, 94);
+  .remove {
+    border: none;
+    color: red;
+    font-size: 1.5rem;
+    background-color: white;
+  }
+
+  .remove:hover {
+    transform: scale(1.1);
+    cursor: pointer;
   }
   
-  thead > *, tr > * {
-    padding: 20px;
+  th, td {
+    padding: 10px 20px;
   }
+
+  td {
+    text-align: center;
+  }
+
+  th {
+    text-indent: 0;
+  }
+
 

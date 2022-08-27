@@ -44,10 +44,12 @@ function displayBook() {
   // Add row to table
   const table = document.querySelector('tbody');
   let row = document.createElement('tr');
+  row.classList.add('book')
   table.append(row);
 
   // Add book data to row
   let currentRow = table.lastChild;
+  removeBook(currentRow);
   for (const property in currentBook) {
     if (property == 'haveRead') {
       let read = document.createElement('button');
@@ -63,20 +65,18 @@ function displayBook() {
       currentRow.append(data);
     }
   }
-
-  removeBook(currentRow);
 }
 
 function removeBook(currentRow) {
 
   // Add remove button
   let remove = document.createElement('button');
-  remove.textContent = 'Remove';
+  remove.textContent = '-';
   remove.classList.add('remove');
   currentRow.append(remove);
 
   // Add remove functionality
-  remove = currentRow.lastChild;
+  remove = currentRow.firstChild;
   remove.addEventListener('click', () => 
     currentRow.remove())
 }
