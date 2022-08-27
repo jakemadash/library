@@ -52,9 +52,11 @@ function displayBook() {
   removeBook(currentRow);
   for (const property in currentBook) {
     if (property == 'haveRead') {
+      let data = document.createElement('td');
+      currentRow.append(data);
       let read = document.createElement('button');
       read.textContent = `${currentBook[property]}`;
-      currentRow.append(read);
+      data.append(read);
       read.addEventListener('click', () => {
         read.textContent = currentBook.readStatus();
       });
@@ -70,10 +72,12 @@ function displayBook() {
 function removeBook(currentRow) {
 
   // Add remove button
+  let data = document.createElement('td');
+  currentRow.append(data);
   let remove = document.createElement('button');
   remove.textContent = '-';
   remove.classList.add('remove');
-  currentRow.append(remove);
+  data.append(remove);
 
   // Add remove functionality
   remove = currentRow.firstChild;

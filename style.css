@@ -2,13 +2,16 @@
    padding: 10% 30%;
    box-sizing: border-box;
    font-size: 1.5rem;
+   background-color: rgb(145, 236, 197);
 }
 
   .remove {
     border: none;
-    color: red;
+    color: rgb(238, 131, 131);
     font-size: 1.5rem;
-    background-color: white;
+    font-size: 1.5rem;
+    background-color: rgb(145, 236, 197);
+    text-align: right;
   }
 
   .remove:hover {
@@ -28,4 +31,15 @@
     text-indent: 0;
   }
 
+  button, input[type='submit'] {
+    border-radius: 3px;
+    font-size: .8rem;
+    background-color: rgb(149, 219, 241);
+  }
+
+  .new {
+    height: 2rem;
+    width: 5rem;
+    margin-left: 200px;
+  }
 
