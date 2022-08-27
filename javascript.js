@@ -8,11 +8,6 @@ function Book (title, author, pages, haveRead) {
     this.haveRead = haveRead
 }
 
-Book.prototype.info = function() {
-  let info = `${this.title} by ${this.author}, ${this.pages} pages, ${this.haveRead}`
-  return info
-}
-
 Book.prototype.readStatus = function() {
   if (this.haveRead.toLowerCase() === 'yes') {
     this.haveRead = 'no'
@@ -83,7 +78,12 @@ function removeBook(currentRow) {
 }
 
 let newBook = document.querySelector('button.new');
-newBook.addEventListener('click', () => 
-  form.removeAttribute('hidden'))
+newBook.addEventListener('click', () => {
+  if (form['hidden']) {
+    form.removeAttribute('hidden')
+  }
+  else form.setAttribute('hidden', '')
+});
+
 
 
