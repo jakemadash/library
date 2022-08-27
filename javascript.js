@@ -21,11 +21,15 @@ form.addEventListener('submit', addBookToLibrary);
  
 
 function addBookToLibrary() {
+
+  // Set book properties from user form
   let book = new Book;
   book.title = document.getElementById('title').value;
   book.author = document.getElementById('author').value;
   book.pages = document.getElementById('pages').value;
   book.haveRead = document.querySelector("input:checked").value;
+
+  // Add book to library, reset/hide form, add book to page
   library.push(book);
   form.reset();
   form.setAttribute('hidden', '');
