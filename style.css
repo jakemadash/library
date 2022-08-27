@@ -1,5 +1,5 @@
 :root {
-   padding: 10% 30%;
+   padding: 3% 30%;
    box-sizing: border-box;
    font-size: 1.5rem;
    background-color: rgb(145, 236, 197);
@@ -35,6 +35,8 @@
     border-radius: 3px;
     font-size: .8rem;
     background-color: rgb(149, 219, 241);
+    height: 2rem;
+    width: 4rem;
   }
 
   .new {
@@ -43,3 +45,16 @@
     margin-left: 200px;
   }
 
+  form {
+    margin-left: 80px;
+  }
+
+  input {
+    height: 1rem;
+    font-size: .7rem;
+  }
+
+  .radio {
+    display: grid;
+    grid-template-columns: min-content min-content;
+  }
