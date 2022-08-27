@@ -40,23 +40,35 @@ function addBookToLibrary() {
 function displayBook() {
 
   let currentBookNumber = library.length;
-  let currentBook = library[currentBookNumber - 1]
+  let currentBook = library[currentBookNumber - 1];
 
   // Add row to table
   const table = document.querySelector('tbody');
   let row = document.createElement('tr');
-  row.setAttribute(`data-number`, `${currentBookNumber}`);
   table.append(row);
 
   // Add book data to row
   let currentRow = table.lastChild;
   for (const property in currentBook) {
-    if (currentBook.hasOwnProperty(property)) {
+    if (property == 'haveRead') {
+      let read = document.createElement('button');
+      read.textContent = `${currentBook[property]}`;
+      currentRow.append(read);
+      read.addEventListener('click', () => {
+        read.textContent = currentBook.readStatus();
+      });
+    }
+    else if (currentBook.hasOwnProperty(property)) {
       let data = document.createElement('td');
       data.textContent = `${currentBook[property]}`
       currentRow.append(data);
     }
   }
+
+  removeBook(currentRow);
+}
+
+function removeBook(currentRow) {
 
   // Add remove button
   let remove = document.createElement('button');

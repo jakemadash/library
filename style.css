@@ -1,0 +1,16 @@
+body {
+   padding: 10% 40%;
+   box-sizing: border-box;
+}
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid rgb(0, 128, 94);
+  }
+  
+  thead > *, tr > * {
+    padding: 20px;
+  }
+
