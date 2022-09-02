@@ -1,21 +1,23 @@
 let library = [];
 const form = document.querySelector('form');
 
-function Book (title, author, pages, haveRead) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.haveRead = haveRead
-}
-
-Book.prototype.readStatus = function() {
-  if (this.haveRead.toLowerCase() === 'yes') {
-    this.haveRead = 'no'
+class Book {
+  constructor(title, author, pages, haveRead) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.haveRead = haveRead;
   }
-  else this.haveRead = 'yes'
 
-  return this.haveRead;
-}
+  readStatus() {
+    if (this.haveRead.toLowerCase() === 'yes') {
+      this.haveRead = 'no';
+    }
+    else this.haveRead = 'yes';
+
+    return this.haveRead;
+  }
+};
 
 form.addEventListener('submit', addBookToLibrary);
  
