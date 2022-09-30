@@ -1,52 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script src="javascript.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <button class="new">New Book</button>
-    <form hidden action="javascript:void(0);">
-        <div>
-            <label for="title">Title</label><br>
-            <input type="text" id="title" name="title" required><br>
-        </div>
+    <form hidden novalidate action="javascript:void(0);">
+      <div>
+        <label for="title">Title</label><br />
+        <input type="text" id="title" name="title" data-number="0" required />
+        <div class="field-error"></div>
+        <br />
+      </div>
 
-        <div>
-            <label for="author">Author</label><br>
-            <input type="text" id="author" name="author" required><br>
-        </div>
+      <div>
+        <label for="author">Author</label><br />
+        <input type="text" id="author" name="author" data-number="1" required />
+        <div class="field-error"></div>
+        <br />
+      </div>
 
-        <div>
-            <label for="pages">Number Of Pages</label><br>
-            <input type="number" id="pages" name="pages" required><br>
-        </div>
+      <div>
+        <label for="pages">Number Of Pages</label><br />
+        <input type="number" id="pages" name="pages" data-number="2" required />
+        <div class="field-error"></div>
+        <br />
+      </div>
 
-        <fieldset>
-            <legend>Have You Read It?</legend>
-                <div class="radio">
-                    <label for="yes">Yes</label>
-                    <input type="radio" id="yes" name="have-read" value="yes" required>
-                    <label for="no">No</label>
-                    <input type="radio" id="no" name="have-read" value="no">
-                </div>
-        </fieldset>
-        <div>
-            <input type="submit">
+      <fieldset id="read" data-number="3" required>
+        <legend>Have You Read It?</legend>
+        <div class="field-error"></div>
+        <div class="radio">
+          <label for="yes">Yes</label>
+          <input type="radio" id="yes" name="have-read" value="yes" required />
+          <label for="no">No</label>
+          <input type="radio" id="no" name="have-read" value="no" />
         </div>
+      </fieldset>
+      <div>
+        <input type="submit" />
+      </div>
     </form>
     <table>
-        <tr>
-            <th class="remove"></th>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Pages</th>
-            <th>Read?</th>
-        </tr>
+      <tr>
+        <th class="remove"></th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Pages</th>
+        <th>Read?</th>
+      </tr>
     </table>
-</body>
+  </body>
 </html>
