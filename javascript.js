@@ -3,7 +3,7 @@ const form = document.querySelector("form");
 const title = document.getElementById("title");
 const author = document.getElementById("author");
 const pages = document.getElementById("pages");
-const haveRead = document.querySelector("input:checked");
+let haveRead = "";
 const radio = document.querySelector("fieldset");
 const fields = [title, author, pages, radio];
 const fieldError = document.querySelectorAll(".field-error");
@@ -54,12 +54,15 @@ function addBookToLibrary() {
 }
 
 function validateForm() {
+  haveRead = document.querySelector("input:checked");
+  let valid = true;
   fields.forEach((field) => {
     if (!field.validity.valid || haveRead === null) {
       showError(field);
-      return false;
-    } else return true;
+      valid = false;
+    }
   });
+  return valid;
 }
 
 function showError(field) {
@@ -68,12 +71,11 @@ function showError(field) {
   const index = field.dataset.number;
   if (field.validity.valueMissing) {
     fieldError[index].textContent = `Ya gotta enter the ${field.id} ya bungus!`;
-  } else if (
-    field.id === "author" &&
-    field.length < 3 &&
-    /\s/.test(field) === false
-  ) {
+  } else if (field.validity.patternMismatch) {
     fieldError[index].textContent = "Gimme a real author you son of a bitch!";
+  } else if (field.validity.rangeUnderflow) {
+    fieldError[index].textContent =
+      "Books have at least one single pathetic page, understand?";
   } else if (field.id === "read") {
     console.log(index);
     fieldError[index].textContent = "Well?";

@@ -20,19 +20,33 @@
 
       <div>
         <label for="author">Author</label><br />
-        <input type="text" id="author" name="author" data-number="1" required />
+        <input
+          type="text"
+          id="author"
+          name="author"
+          data-number="1"
+          pattern="[a-zA-Z]+\s[a-zA-Z]+"
+          required
+        />
         <div class="field-error"></div>
         <br />
       </div>
 
       <div>
         <label for="pages">Number Of Pages</label><br />
-        <input type="number" id="pages" name="pages" data-number="2" required />
+        <input
+          type="number"
+          id="pages"
+          name="pages"
+          data-number="2"
+          min="1"
+          required
+        />
         <div class="field-error"></div>
         <br />
       </div>
 
-      <fieldset id="read" data-number="3" required>
+      <fieldset id="read" data-number="3">
         <legend>Have You Read It?</legend>
         <div class="field-error"></div>
         <div class="radio">
